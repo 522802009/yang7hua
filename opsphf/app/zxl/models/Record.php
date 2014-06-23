@@ -1,18 +1,6 @@
 <?php
 
-use Phf\Mvc\Model\Validator\Regex as RegexValidator;
-
-class Record extends \Phf\Mvc\Model{
-
-	public function validation()
-	{
-		$this->validate(new RegexValidator(array(
-							'field'	=>	'card_number',
-							'pattern'	=>	'/^[\dxX]{18}$/'
-						)));
-
-		return $this->validationHasFailed() != true;
-	}
+class Record extends Model{
 
 	public function insert($data)
 	{

@@ -37,7 +37,7 @@ class SearchController extends Controller{
 		$data['addtime'] = time();
 
 		$Record = new Record();
-		echo $Record->insert($data) ? 1 : 0;
+		$Record->insert($data);
 	}
 
 }

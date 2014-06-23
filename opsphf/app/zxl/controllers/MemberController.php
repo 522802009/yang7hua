@@ -1,7 +1,10 @@
 <?php
-use \Phf\Mvc\Model\Resultset;
 
+/**
+  会员账号相关
+*/
 class MemberController extends Controller{
+	protected $_allowAction = array('login');
 
 	public function initialize()
 	{
@@ -10,15 +13,47 @@ class MemberController extends Controller{
 
 	public function indexAction()
 	{
+		echo $this->isLogin() ? 1 : 0;
+	}
+
+	public function loginAction()
+	{
+		$params = $this->getParams();
+		$username = $params['username'];
+		$password = $params['password'];
+		if(empty($username) || empty($password))
+			$this->ajaxReturn('参数错误', false);
+
+		$password = password($password);
+		
+		$Member = new Member();
+		$info = $Member->findFirst("username = '$username' and password = '$password'");
+		if(!$info)
+			$this->ajaxReturn('账号或密码不正确', false);
+		if($info->status != 1)
+			$this->ajaxReturn('您的账号未通过审核', false);
+
+		$this->session->set('member_id', $info->memberid);
+		$this->session->set('username', $info->username);
+
+		$this->ajaxReturn('登陆成功');
+	}
+
+	public function logoutAction()
+	{
+		$this->session->destroy();
+		$this->ajaxReturn('登出成功');
 	}
 
 	public function infoAction()
 	{
-		$member_id = $this->session->get('member_id');
+		$member_id = $this->getMemberId();
 		$Member = new Member();
-		$info = $Member::findFirst(array(
-					'memberid'	=>	$member_id
+		$info = $Member->first(array(
+					"memberid=$member_id",
+					'fields'	=>	'username'
 				));
+		$this->ajaxReturn($info);
 	}
 
 	public function addAction()
@@ -27,18 +62,14 @@ class MemberController extends Controller{
 		if(empty($params['username']) || empty($params['password']) || empty($params['company']))
 			$this->ajaxReturn('参数错误', false);
 
-		$data['username'] = $params['username'];
-		$data['password'] = $params['password'];
-		$data['companyname'] = $params['company'];
-		$data['address'] = $this->request->get('address', '', '');
-		$data['email'] = $this->request->get('email', 'email', '');
-		$data['addtime'] = time();
 		$Member = new Member();
-		$result = $Member->insert($data);
-		if($result === true)
-			$this->ajaxReturn('添加成功');
-		else
-			$this->ajaxReturn('添加失败', false);
+		$Member->username = $params['username'];
+		$Member->password = $params['password'];
+		$Member->companyname = $params['company'];
+		$Member->address = $this->request->get('address', '', '');
+		$Member->email = $this->request->get('email', 'email', '');
+		$Member->addtime = time();
+		$Member->save();
 	}
 
 	public function saveAction()
@@ -51,9 +82,7 @@ class MemberController extends Controller{
 		$info = $Member->findFirst($member_id);
 		if(isset($params['password']))	
 			$info->password = password($params['password']);
-		if($info->save() == false)
-			$this->ajaxReturn('操作失败', false);
-		$this->ajaxReturn('操作成功');
+		$this->save();
 	}
 	
 }

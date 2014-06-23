@@ -49,6 +49,13 @@ $di->setShared('session', function(){
 			return $session;
 		});
 
+$router = new Phf\Mvc\Router();
+$router->setDefaults(array(
+			'controller'=>	$config->application->default->controller,
+			'action'	=>	$config->application->default->action
+		));
+$router->handle();
+
 function limit($p=1, $limit=10)
 {
 	return ($p-1)*$limit . ',' . $limit;

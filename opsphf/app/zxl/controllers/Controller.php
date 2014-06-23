@@ -2,21 +2,54 @@
 
 use \Util\Page;
 
-class Controller extends \Phf\Mvc\Controller{
+class Controller extends \Phf\Mvc\Controller
+{
+
 	private $_params;
+	
+	protected $_allowAction = array();
+
+	private $_controllerName;
+
+	private $_actionName;
 
 	protected function initialize()
 	{
+		$this->_check();
 		$this->_setParams();
-		//print_r($this->page(100,3));
-		$this->session->set('member_id', 1);
+	}
+
+	private function _check()
+	{
+		if(!in_array($this->getActionName(), $this->_allowAction) && !$this->isLogin())
+			$this->ajaxReturn('请先登陆', false);
+	}
+
+	protected function getControllerName()
+	{
+		global $router;
+		if(!isset($this->_controllerName))
+			$this->_controllerName = $router->getControllerName();
+		return $router->getControllerName();
+	}
+
+	protected function getActionName()
+	{
+		global $router;
+		if(!isset($this->_actionName))
+			$this->_actionName = $router->getActionName();
+		return $this->_actionName;
 	}
 
 	private function _setParams()
 	{
 		global $config;
 		$page	= (array) $config->pagination;
-		$this->_params = array_merge($page, $this->request->get());
+		$params = array_merge($page, $this->request->get());
+		foreach($params as &$param){
+			$param = htmlspecialchars($param);
+		}
+		$this->_params = $params;
 	}
 
 	protected function getParams()
@@ -27,6 +60,11 @@ class Controller extends \Phf\Mvc\Controller{
 	protected function getMemberId()
 	{
 		return $this->session->get('member_id');
+	}
+
+	protected function isLogin()
+	{
+		return $this->session->get('member_id') != null;
 	}
 
 	protected function page($count, $limit)
@@ -42,7 +80,7 @@ class Controller extends \Phf\Mvc\Controller{
 		return false;
 	}
 
-	protected function ajaxReturn($data, $success=true)
+	public function ajaxReturn($data, $success=true)
 	{
 		$return = array();
 		$return['return'] = $success ? 1 : 0;
