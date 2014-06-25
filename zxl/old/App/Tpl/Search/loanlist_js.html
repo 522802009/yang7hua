@@ -1,0 +1,18 @@
+<script type="text/html" id="loanlist_js">
+	<table class="table table-striped table-hover">
+	    <tr>
+		    <td align="center" width="20%" valign="middle">借款时间</td>
+		    <td align="center" width="20%" valign="middle">借款人</td>
+		    <td align="center" width="20%" valign="middle">借款金额</td>
+		    <td align="center" valign="middle">公司名称</td>		 
+	    </tr>
+	    {each list as item i}
+	    <tr>
+		    <td align="center" valign="middle">{Common.formatDate(item.time)}</td>
+		    <td align="center" valign="middle">{item.User.realname}</td>
+		    <td align="center" valign="middle">{Common.formatMoney(item.money)}</td>
+		    <td align="center" valign="middle">{item.Member.companyname}</td>
+	    </tr>
+	    {/each}
+	  </table>
+</script>

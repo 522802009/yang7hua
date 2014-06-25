@@ -1,0 +1,103 @@
+<include file="Public:header"/>
+
+  <div class="row hao_tab">
+    <div class="panel panel-default"> 
+      <!-- Default panel contents -->
+      <div class="panel-heading">新增借款</div>
+      
+      <div class="panel-body">
+	      <!-- Table -->
+	      <form class="form-horizontal">
+	      	
+	      	<div class="form-group">
+	      		<label class="control-label col-sm-3">借款时间</label>
+	      		<div class="col-xs-4">
+	      			<input type="date" class="form-control" name="time">
+	      		</div>
+	      	</div>
+	      	<div class="form-group">
+	      		<label class="control-label col-sm-3">借款人身份证号</label>
+	      		<div class="col-xs-4">
+	      			<input type="text" class="form-control" name="idcard">
+	      		</div>
+	      	</div>
+	      	<div class="form-group">
+	      		<label class="control-label col-sm-3">确认身份证号</label>
+	      		<div class="col-xs-4">
+	      			<input type="text" class="form-control" name="idcard_confirm">
+	      		</div>
+	      	</div>
+	      	<div class="form-group">
+	      		<label class="control-label col-sm-3">借款人姓名</label>
+	      		<div class="col-xs-4">
+	      			<input type="text" class="form-control" name="realname">
+	      		</div>
+	      	</div>
+	      	<div class="form-group">
+	      		<label class="control-label col-sm-3">借款金额</label>
+	      		<div class="col-xs-4">
+	      			<div class="input-group">
+	      				<input type="text" class="form-control" name="money">
+	      				<span class="input-group-addon">.00</span>
+	      			</div>	      				      			
+	      		</div>
+	      	</div>
+	      	<div class="form-group">
+	      		<label class="control-label col-sm-3">借款金额</label>
+	      		<div class="col-xs-3">
+	      			<select class="form-control" name="status">
+		              <option value=2>还款中</option>
+		              <option value=3>逾期中</option>
+		              <option value=1>已结清</option>
+		            </select>
+	      		</div>
+	      	</div>
+	      	<div class="form-group">
+	      		<label class="control-label col-xs-3"></label>
+	      		<div class="col-xs-4">
+	      			<button class="btn btn-primary btn-lg" id="loan-add-submit">提交借款</button>
+	      		</div>
+	      	</div>
+	      </form>	      	      
+	   </div>
+    </div>
+  </div>
+  
+<script type="text/javascript">
+$(function(){
+	var time = $('[name=time]'),
+		idcard = $('[name=idcard]'),
+		idcard_confirm = $('[name=idcard_confirm]'),
+		realname = $('[name=realname]'),
+		money = $('[name=money]'),
+		status = $('[name=status]');
+	$('#loan-add-submit').click(function(){
+		var data = {
+			time : time.val(),
+			idcard : idcard.val(),
+			realname : realname.val(),
+			money : money.val(),
+			status : status.val()
+		};
+		
+		$.ajax({
+			url : '/loan/add',
+			type : 'post',
+			dataType : 'json',
+			data : data,
+			success : function(res){
+				if(res['return'] > 0){
+					alert(res['msg']);
+					location.reload();
+				}else{
+					alert(res['errmsg']);
+				}
+			}
+		})
+		
+		return false;
+	})
+})	
+</script>
+
+<include file="Public:footer"/>
