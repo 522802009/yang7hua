@@ -3,6 +3,7 @@
 !defined('APP_NAME') && defined('APP_NAME', 'zxl');
 define('APP_PATH', __DIR__ . '/' . APP_NAME . '/');
 define('CONF_PATH', APP_PATH . 'config/');
+define('ROOT_PATH', __DIR__ . '/../');
 
 try{
 	$config = new Phf\Config\Adapter\Ini(CONF_PATH . 'config.php');
@@ -28,11 +29,21 @@ try{
 		->register();
 
 	$di = new Phf\DI\FactoryDefault();
+	
+	$di->set('voltService', function($view, $di) use ($config){
+				$volt = new \Phf\Mvc\View\Engine\Volt($view, $di);
+				$volt->setOptions(array(
+							//'compiledPath'	=>	rtrim(ROOT_PATH. $config->engine->compiledPath, '/') . '/',
+							'compiledExtension'	=>	$config->engine->compiledExtension
+						));
+				return $volt;
+			});
+
 	$di->set('view', function() use ($config){
 			$view = new Phf\Mvc\View();
 			$view->setViewsDir(PUBLIC_PATH . $config->application->viewsDir . '/' . $config->public->defaultTheme . '/');
 			$view->registerEngines(array(
-					'.html'	=>	'Phf\Mvc\View\Engine\Volt'	
+					'.html'	=>	'voltService'	
 					));
 			return $view; 
 			});
@@ -63,9 +74,8 @@ try{
 				));
 	$router->handle();
 
-	include 'app.php';
 
-	//var_dump(\Common\Func\getMethodsOfClass('Phf\Mvc\View'));
+	include 'app.php';
 
 	$app = new Phf\Mvc\Application($di);
 	echo $app->handle()->getContent();

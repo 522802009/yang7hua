@@ -11,6 +11,7 @@ class MemberController extends Controller
 	public function initialize()
 	{
 		parent::initialize();
+		$this->view->setVar('userinfo', array('username'=>$this->session->get('username')));
 	}
 
 	public function indexAction()
@@ -54,7 +55,10 @@ class MemberController extends Controller
 	{
 		$this->session->remove('member_id');
 		$this->session->remove('username');
-		$this->ajaxReturn('登出成功');
+		if($this->isAjax())
+			$this->ajaxReturn('登出成功');
+		else
+			$this->redirect('member/login');
 	}
 
 	public function applyAction()
@@ -77,6 +81,7 @@ class MemberController extends Controller
 
 			$params['companyname'] = $params['company'];
 			$params['tablename'] = 'member';
+			$params['fields'] = array(array('memberid', 'username', 'password'), true);
 			$Member->setQueryOptions($params)->doInsert();
 		
 			return;
@@ -107,6 +112,7 @@ class MemberController extends Controller
 		$params['tablename'] = 'member';
 		$params['where'] = "memberid=$memberid";
 		$params['companyname'] = $params['company'];
+		$params['fields'] = array(array('memberid', 'username', 'password', 'companyname'), true);
 
 		$Member->setQueryOptions($params)->doUpdate();
 	}

@@ -32,14 +32,30 @@ class MethodsController extends Controller
 			case 'url':
 				$class = '\Phf\Mvc\Url';
 				break;
+			case 'router':
+				$class = '\Phf\Mvc\Router';
+				break;
 			case 'metadata':
 				$class = '\Phf\Mvc\Model\MetaData';
 				break;
 			case 'session':
 				$class = '\Phf\Session\Adapter\Files';
 				break;
-			case 'enginevolt':
+			case 'volt':
 				$class = '\Phf\Mvc\View\Engine\Volt';
+				break;
+			case 'response':
+				$class = '\Phf\Http\Response';
+				break;
+				break;
+			case 'gd':
+				$class = '\Phf\Image\Adapter\GD';
+				break;
+			case 'image':
+				$class = '\Phf\Image';
+				break;
+			case 'imagick':
+				$class = '\Phf\Image\Adapter\Imagick';
 				break;
 			default:
 				$class = ucwords($this->getActionName()) . 'Controller';

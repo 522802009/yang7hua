@@ -3,6 +3,9 @@
 $controllerName = $router->getControllerName();
 $actionName = $router->getActionName();
 
+if(empty($actionName))
+	$actionName = 'index';
+
 $controller = ucwords($controllerName) . 'Controller';
 
 if(!class_exists($controller)) 
@@ -21,11 +24,11 @@ if(!$reflectionController->hasMethod($actionName . 'Action')){
 
 	$dispatcher->dispatch();
 
-	$view->render(
-			$dispatcher->getControllerName(),
-			$dispatcher->getActionName(),
-			$dispatcher->getParams()
-			);
+	/*$view->render(
+	  $dispatcher->getControllerName(),
+	  $dispatcher->getActionName(),
+	  $dispatcher->getParams()
+	  );*/
 	$view->render($controllerName, $actionName); 
 	$view->finish();
 

@@ -24,7 +24,7 @@ class Page {
     // 分页显示定制
     protected $config  =    array('header'=>'条记录','prev'=>'上一页','next'=>'下一页','first'=>'第一页','last'=>'最后一页','theme'=>' %totalRow% %header% %nowPage%/%totalPage% 页 %upPage% %downPage% %first%  %prePage%  %linkPage%  %nextPage% %end%');
     // 默认分页变量名
-    protected $varPage;
+    protected $varPage  = 'p';
 
     /**
      * 架构函数
@@ -37,8 +37,6 @@ class Page {
         $this->totalRows    =   $totalRows;
         $this->parameter    =   $parameter;
 		global $config;
-		$var_page = $config->pagination->p;
-        $this->varPage      =   $var_page ? $var_page : 'p' ;
         if(!empty($listRows)) {
             $this->listRows =   intval($listRows);
         }

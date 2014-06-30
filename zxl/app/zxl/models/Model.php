@@ -146,7 +146,7 @@ class Model extends \Phf\Mvc\Model
 		$allFields = $this->getTableFields();
 		$filter = false;
 		if(empty($allowFields))
-			$allowFields = $this->selectFields;
+			$allowFields = $this->selectFields ? $this->selectFields : $allFields;
 		if($allowFields == '*'){
 			$fields = $allFields;
 		}else if(is_string($allowFields)){
@@ -155,11 +155,8 @@ class Model extends \Phf\Mvc\Model
 			if(is_array($allowFields[0])){
 				$fields = $allowFields[0];
 				$filter = isset($allowFields[1]) ? $allowFields[1] : false;
-			}else if(count($allowFields) == 2){ 
-				$fields = $allowFields;
-				$filter = $allowFields[1];
 			}else{
-				$fields = $allowFields[0];
+				$fields = $allowFields;
 			}
 		}
 
@@ -188,15 +185,12 @@ class Model extends \Phf\Mvc\Model
 			return $row;
 		};
 
-		$toArray = function($row) use ($filter){
-			$row = $row->toArray();
-			return $filter($row);
-		};
-		if(count($data) > 1){
+		$data = $data->toArray();
+		if(is_array($data[0])){
 			foreach($data as $row)
-				$return[] = $toArray($row);
+				$return[] = $filter($row);
 		}else{
-			$return = $toArray($data);
+			$return = $filter($data);
 		}
 
 		return $return;
@@ -243,36 +237,37 @@ class Model extends \Phf\Mvc\Model
 		}
 	}
 
-	public function doUpdate($tableName='', array $fields = array(), array $values = array(), $where = '')
+	public function doUpdate($ajaxReturn = true)
 	{
-		if($this->getDb()->update(
+		$this->doResult = $this->getDb()->update(
 					$this->_queryOptions['tableName'],
 					$this->_queryOptions['fields'],
 					$this->_queryOptions['values'],
 					$this->_queryOptions['where']
-				)
-		){
-			$this->ajaxReturn('操作成功');
-		}else{
-			$messageStr = null;
-			foreach(parent::getMessages() as $message){
-				$messageStr .= $message . '; ';
-			}
-			$this->ajaxReturn(rtrim($messageStr, '; '), false);
-		}
+				);
+		return $this->returnDoResult($ajaxReturn);
 	}
 
-	public function doInsert($tableName='', array $fields=array(), array $values=array())
+	public function doInsert($ajaxReturn = true)
 	{
-		if($this->getDb()->insert(
+		$this->doResult = $this->getDb()->insert(
 					$this->_queryOptions['tableName'],
 					$this->_queryOptions['values'],
-					$this->_queryOptions['fields'],
-					$this->_queryOptions['where']
-			)
-		){
-			$this->ajaxReturn('操作成功', false);
+					$this->_queryOptions['fields']
+				);
+		return $this->returnDoResult($ajaxReturn);
+	}
+
+	private function returnDoResult($ajaxReturn = true)
+	{
+		if($this->doResult){
+			if($ajaxReturn)
+				$this->ajaxReturn('操作成功'); 
+			return true;
 		}else{
+			if(!$ajaxReturn)
+				return false;
+
 			$messageStr = null;
 			foreach(parent::getMessages() as $message){
 				$messageStr .= $message . '; ';

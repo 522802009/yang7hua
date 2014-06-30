@@ -35,11 +35,9 @@ class Controller extends \Phf\Mvc\Controller
 	
 	/**
 	  called when action is not declared;
-	  global $view
 	*/
 	public function emptyAction()
 	{
-		global $view;
 		if($this->isAjax()){
 			$this->display();
 		}
@@ -47,7 +45,6 @@ class Controller extends \Phf\Mvc\Controller
 
 	private function _setGlobalVars()
 	{
-		global $config;
 		$globalVars = array();
 		$this->_globalVars = array_merge($globalVars, $this->_tplparse);
 		$this->view->setVars(
@@ -63,7 +60,7 @@ class Controller extends \Phf\Mvc\Controller
 			if($this->isAjax())
 				$this->ajaxReturn('请先登陆', false);
 			$redirect = $this->getControllerName() == 'manage' ? 'manage/login' : 'member/login';
-			$this->response->redirect($redirect)->sendHeaders();
+			$this->redirect($redirect);
 		}
 	}
 
@@ -72,7 +69,7 @@ class Controller extends \Phf\Mvc\Controller
 		global $router;
 		if(!isset($this->_controllerName))
 			$this->_controllerName = $router->getControllerName();
-		return $router->getControllerName();
+		return $this->_controllerName;
 	}
 
 	protected function getActionName()

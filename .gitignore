@@ -1,0 +1,9 @@
+*.swp
+*.swo
+.DS_Store
+__MACOSX
+.svn
+.project
+zxl/public/.git
+zxl/app/zxl/controllers/ApiController.php
+zxl/app/zxl/config/config.php

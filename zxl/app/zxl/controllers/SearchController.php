@@ -1,5 +1,7 @@
 <?php
 
+use \Common\Func as Func;
+
 class SearchController extends Controller{
 
 	private static $reason = array(1=>'贷款审批', 2=>'担保资格审批');
@@ -8,6 +10,7 @@ class SearchController extends Controller{
 	public function indexAction()
 	{
 		$this->view->setVar('reason', static::$reason);
+		$this->view->setVar('userinfo', array('username'=>$this->session->get('username')));
 		$this->display();
 	}
 	
@@ -16,6 +19,9 @@ class SearchController extends Controller{
 		$reason = $this->request->get('reason', 'int');
 		$card_number = $this->request->get('cardnumber');
 		$realname = $this->request->get('realname');
+
+		$params = $this->getParams();
+
 		if(empty($reason) || empty($card_number) || empty($realname))
 			$this->ajaxReturn('参数错误', false);
 		if(!preg_match("/^[\x{4E00}-\x{9Fa5}]+$/u", $realname))
@@ -31,14 +37,25 @@ class SearchController extends Controller{
 		if(!$userinfo)
 			$this->ajaxReturn('没有数据', false);
 
-		$data['card_type'] = 1;
-		$data['card_number'] = $card_number;
-		$data['reason'] = $reason;
-		$data['member_id'] = $this->getMemberId();
-		$data['addtime'] = time();
+		$card_type = 1;
+		$params['card_type'] = $card_type;
+		$params['card_number'] = $card_number;
+		$params['reason'] = $reason;
+		$params['member_id'] = $this->getMemberId();
+		$params['addtime'] = time();
 
 		$Record = new Record();
-		$Record->insert($data);
+
+		$record['list'] = $Record->select(array(
+							$record_select_where,
+							'limit'	=> Func\limit($params['p'], $params['limit'])
+					));
+		$count = $Record->count($record_select_where);
+		$record['page'] = $this->page($count, $params['limit']);
+
+		$Record->insert($params, false);
+
+		$this->ajaxReturn($record);
 	}
 
 }
