@@ -1,9 +1,4 @@
 [database]
-host	=	192.168.1.69	
-username=	zhxla_dev	
-password=	zhxla.17dev.mysql	
-dbname	=	zhxla_dev
-charset =	utf8
 
 [application]
 controllersDir	=	controllers
