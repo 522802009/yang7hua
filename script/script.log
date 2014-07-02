@@ -1,0 +1,238 @@
+
+2014-07-01 18:05 : 获取数据成功
+2014-07-01 18:05 : 新增数据 0 条, 失败 10 条.
+2014-07-01 18:06 : 获取数据成功
+2014-07-01 18:06 : 新增数据0 条, 失败10 条.
+2014-07-01 18:06 : 获取数据成功
+2014-07-01 18:06 : 新增数据, 失败.
+2014-07-01 18:06 : 获取数据成功
+2014-07-01 18:06 : 新增数据, 失败.
+2014-07-01 18:07 : 获取数据成功
+2014-07-01 18:07 : 新增数据0条, 失败10条.
+2014-07-01 18:13 : 获取数据成功
+2014-07-01 18:13 : 新增数据0条, 失败10条.
+2014-07-01 18:13 : 获取数据成功
+2014-07-01 18:13 : 新增数据0条, 失败10条.
+2014-07-01 18:14 : 获取数据成功
+2014-07-01 18:14 : 新增数据0条, 失败10条.
+2014-07-01 18:15 : 获取数据成功
+2014-07-01 18:15 : 新增数据0条, 失败10条.
+2014-07-01 18:16 : 获取数据成功
+2014-07-01 18:16 : 新增数据10条, 失败0条.
+2014-07-01 18:16 : 获取数据成功
+2014-07-01 18:16 : 新增数据0条, 失败10条.
+2014-07-02 10:01 : 获取数据成功
+2014-07-02 10:01 : <br />
+<font size='1'><table class='xdebug-error xe-fatal-error' dir='ltr' border='1' cellspacing='0' cellpadding='1'>
+<tr><th align='left' bgcolor='#f57900' colspan="5"><span style='background-color: #cc0000; color: #fce94f; font-size: x-large;'>( ! )</span> Fatal error: Declaration of Loan::update() must be compatible with Phf\Mvc\ModelInterface::update($data = NULL, $whiteList = NULL) in /www/zxl/app/zxl/models/Loan.php on line <i>3</i></th></tr>
+<tr><th align='left' bgcolor='#e9b96e' colspan='5'>Call Stack</th></tr>
+<tr><th align='center' bgcolor='#eeeeec'>#</th><th align='left' bgcolor='#eeeeec'>Time</th><th align='left' bgcolor='#eeeeec'>Memory</th><th align='left' bgcolor='#eeeeec'>Function</th><th align='left' bgcolor='#eeeeec'>Location</th></tr>
+<tr><td bgcolor='#eeeeec' align='center'>1</td><td bgcolor='#eeeeec' align='center'>0.0001</td><td bgcolor='#eeeeec' align='right'>276896</td><td bgcolor='#eeeeec'>{main}(  )</td><td title='/www/zxl/index.php' bgcolor='#eeeeec'>../index.php<b>:</b>0</td></tr>
+<tr><td bgcolor='#eeeeec' align='center'>2</td><td bgcolor='#eeeeec' align='center'>0.0001</td><td bgcolor='#eeeeec' align='right'>279232</td><td bgcolor='#eeeeec'>include( <font color='#00bb00'>'/www/zxl/app/index.php'</font> )</td><td title='/www/zxl/index.php' bgcolor='#eeeeec'>../index.php<b>:</b>7</td></tr>
+<tr><td bgcolor='#eeeeec' align='center'>3</td><td bgcolor='#eeeeec' align='center'>0.0011</td><td bgcolor='#eeeeec' align='right'>368568</td><td bgcolor='#eeeeec'><a href='http://www.php.net/Phf\Mvc\Application.handle' target='_new'>handle</a>
+(  )</td><td title='/www/zxl/app/index.php' bgcolor='#eeeeec'>../index.php<b>:</b>81</td></tr>
+<tr><td bgcolor='#eeeeec' align='center'>4</td><td bgcolor='#eeeeec' align='center'>0.0012</td><td bgcolor='#eeeeec' align='right'>398376</td><td bgcolor='#eeeeec'>ApiController->initialize(  )</td><td title='/www/zxl/app/index.php' bgcolor='#eeeeec'>../index.php<b>:</b>0</td></tr>
+<tr><td bgcolor='#eeeeec' align='center'>5</td><td bgcolor='#eeeeec' align='center'>0.0021</td><td bgcolor='#eeeeec' align='right'>453440</td><td bgcolor='#eeeeec'>Phf\Loader->autoLoad(  )</td><td title='/www/zxl/app/index.php' bgcolor='#eeeeec'>../index.php<b>:</b>0</td></tr>
+</table></font>
+
+2014-07-02 10:01 : 获取数据成功
+2014-07-02 10:01 : 新增数据0条, 失败0条.
+2014-07-02 10:03 : 获取数据成功
+2014-07-02 10:03 : {"ret":1,"msg":"\u64cd\u4f5c\u6210\u529f"}
+2014-07-02 10:03 : 获取数据成功
+2014-07-02 10:03 : 新增数据0条, 失败10条.
+2014-07-02 10:03 : 获取数据成功
+2014-07-02 10:03 : 新增数据0条, 失败10条.
+2014-07-02 10:03 : 获取数据成功
+2014-07-02 10:03 : 新增数据0条, 失败0条.
+2014-07-02 10:04 : 获取数据成功
+2014-07-02 10:04 : 新增数据0条, 更新10条, 失败0条.
+2014-07-02 11:52 : <url> malformed
+2014-07-02 11:52 : <url> malformed
+2014-07-02 11:52 : <url> malformed
+2014-07-02 11:52 : <url> malformed
+2014-07-02 11:52 : <url> malformed
+2014-07-02 11:52 : <url> malformed
+2014-07-02 11:53 : <url> malformed
+2014-07-02 11:53 : <url> malformed
+2014-07-02 11:53 : <url> malformed
+2014-07-02 11:56 : 获取贷款数据成功
+2014-07-02 11:56 : 获取贷款数据成功
+2014-07-02 12:58 : 获取贷款数据成功
+2014-07-02 12:58 : 获取贷款数据成功
+2014-07-02 12:58 : SQLSTATE[01000]: Warning: 1265 Data truncated for column 'repay_method' at row 1SQLSTATE[01000]: Warning: 1265 Data truncated for column 'repay_method' at row 1SQLSTATE[01000]: Warning: 1265 Data truncated for column 'repay_method' at row 1SQLSTATE[01000]: Warning: 1265 Data truncated for column 'repay_method' at row 1SQLSTATE[01000]: Warning: 1265 Data truncated for column 'repay_method' at row 1SQLSTATE[01000]: Warning: 1265 Data truncated for column 'repay_method' at row 1新增数据7条, 更新条, 失败3条.
+2014-07-02 12:59 : 获取贷款数据成功
+2014-07-02 12:59 : 新增数据3条, 更新7条, 失败0条.
+2014-07-02 12:59 : 获取贷款数据成功
+2014-07-02 12:59 : 新增数据0条, 更新10条, 失败0条.
+2014-07-02 13:01 : 获取贷款数据成功
+2014-07-02 13:01 : 新增数据0条, 失败10条.
+2014-07-02 13:01 : 获取贷款数据成功
+2014-07-02 13:01 : 新增数据0条, 失败10条.
+2014-07-02 13:41 : 获取[]还款数据失败: 
+2014-07-02 13:42 : 获取[]还款数据成功
+2014-07-02 13:42 : <url> malformed
+2014-07-02 13:42 : 
+2014-07-02 13:42 : 获取[]还款数据成功
+2014-07-02 13:42 : <url> malformed
+2014-07-02 13:42 : 
+2014-07-02 13:43 : 获取[yiqihao]还款数据成功
+2014-07-02 13:43 : <url> malformed
+2014-07-02 13:43 : 
+2014-07-02 13:48 : 获取[yiqihao]贷款数据成功
+2014-07-02 13:48 : <url> malformed
+2014-07-02 13:48 : 
+2014-07-02 14:06 : 获取[yiqihao]贷款数据成功
+2014-07-02 14:06 : <url> malformed
+2014-07-02 14:06 : 
+2014-07-02 14:07 : 获取[yiqihao]贷款数据成功
+2014-07-02 14:07 : <url> malformed
+2014-07-02 14:07 : 
+2014-07-02 14:07 : 获取[yiqihao]贷款数据成功
+2014-07-02 14:07 : <url> malformed
+2014-07-02 14:07 : 
+2014-07-02 14:08 : 获取[yiqihao]贷款数据成功
+2014-07-02 14:08 : <url> malformed
+2014-07-02 14:08 : 
+2014-07-02 14:08 : 获取[yiqihao]贷款数据成功
+2014-07-02 14:08 : <url> malformed
+2014-07-02 14:08 : 
+2014-07-02 14:08 : 获取[yiqihao]贷款数据成功
+2014-07-02 14:08 : <url> malformed
+2014-07-02 14:08 : 
+2014-07-02 14:08 : 获取[yiqihao]贷款数据成功
+2014-07-02 14:08 : 新增数据1条, 失败9条.
+2014-07-02 14:08 : 获取[yiqihao]贷款数据成功
+2014-07-02 14:08 : 新增数据0条, 失败10条.
+2014-07-02 14:08 : 获取[yiqihao]贷款数据成功
+2014-07-02 14:08 : 新增数据0条, 失败10条.
+2014-07-02 14:08 : 获取[yiqihao]贷款数据成功
+2014-07-02 14:08 : 新增数据0条, 失败10条.
+2014-07-02 14:08 : 获取[yiqihao]还款数据成功
+2014-07-02 14:08 : 新增数据0条, 失败10条.
+2014-07-02 14:13 : 获取[yiqihao]贷款数据成功
+2014-07-02 14:13 : <br />
+<font size='1'><table class='xdebug-error xe-fatal-error' dir='ltr' border='1' cellspacing='0' cellpadding='1'>
+<tr><th align='left' bgcolor='#f57900' colspan="5"><span style='background-color: #cc0000; color: #fce94f; font-size: x-large;'>( ! )</span> Fatal error: Class 'Loanrepay' not found in /www/zxl/app/zxl/controllers/ApiController.php on line <i>23</i></th></tr>
+<tr><th align='left' bgcolor='#e9b96e' colspan='5'>Call Stack</th></tr>
+<tr><th align='center' bgcolor='#eeeeec'>#</th><th align='left' bgcolor='#eeeeec'>Time</th><th align='left' bgcolor='#eeeeec'>Memory</th><th align='left' bgcolor='#eeeeec'>Function</th><th align='left' bgcolor='#eeeeec'>Location</th></tr>
+<tr><td bgcolor='#eeeeec' align='center'>1</td><td bgcolor='#eeeeec' align='center'>0.0001</td><td bgcolor='#eeeeec' align='right'>277368</td><td bgcolor='#eeeeec'>{main}(  )</td><td title='/www/zxl/index.php' bgcolor='#eeeeec'>../index.php<b>:</b>0</td></tr>
+<tr><td bgcolor='#eeeeec' align='center'>2</td><td bgcolor='#eeeeec' align='center'>0.0001</td><td bgcolor='#eeeeec' align='right'>279704</td><td bgcolor='#eeeeec'>include( <font color='#00bb00'>'/www/zxl/app/index.php'</font> )</td><td title='/www/zxl/index.php' bgcolor='#eeeeec'>../index.php<b>:</b>7</td></tr>
+<tr><td bgcolor='#eeeeec' align='center'>3</td><td bgcolor='#eeeeec' align='center'>0.0013</td><td bgcolor='#eeeeec' align='right'>373784</td><td bgcolor='#eeeeec'><a href='http://www.php.net/Phf\Mvc\Application.handle' target='_new'>handle</a>
+(  )</td><td title='/www/zxl/app/index.php' bgcolor='#eeeeec'>../index.php<b>:</b>81</td></tr>
+<tr><td bgcolor='#eeeeec' align='center'>4</td><td bgcolor='#eeeeec' align='center'>0.0014</td><td bgcolor='#eeeeec' align='right'>403592</td><td bgcolor='#eeeeec'>ApiController->initialize(  )</td><td title='/www/zxl/app/index.php' bgcolor='#eeeeec'>../index.php<b>:</b>0</td></tr>
+</table></font>
+
+2014-07-02 14:13 : 获取[yiqihao]还款数据成功
+2014-07-02 14:13 : <br />
+<font size='1'><table class='xdebug-error xe-fatal-error' dir='ltr' border='1' cellspacing='0' cellpadding='1'>
+<tr><th align='left' bgcolor='#f57900' colspan="5"><span style='background-color: #cc0000; color: #fce94f; font-size: x-large;'>( ! )</span> Fatal error: Class 'Loanrepay' not found in /www/zxl/app/zxl/controllers/ApiController.php on line <i>23</i></th></tr>
+<tr><th align='left' bgcolor='#e9b96e' colspan='5'>Call Stack</th></tr>
+<tr><th align='center' bgcolor='#eeeeec'>#</th><th align='left' bgcolor='#eeeeec'>Time</th><th align='left' bgcolor='#eeeeec'>Memory</th><th align='left' bgcolor='#eeeeec'>Function</th><th align='left' bgcolor='#eeeeec'>Location</th></tr>
+<tr><td bgcolor='#eeeeec' align='center'>1</td><td bgcolor='#eeeeec' align='center'>0.0001</td><td bgcolor='#eeeeec' align='right'>277368</td><td bgcolor='#eeeeec'>{main}(  )</td><td title='/www/zxl/index.php' bgcolor='#eeeeec'>../index.php<b>:</b>0</td></tr>
+<tr><td bgcolor='#eeeeec' align='center'>2</td><td bgcolor='#eeeeec' align='center'>0.0001</td><td bgcolor='#eeeeec' align='right'>279704</td><td bgcolor='#eeeeec'>include( <font color='#00bb00'>'/www/zxl/app/index.php'</font> )</td><td title='/www/zxl/index.php' bgcolor='#eeeeec'>../index.php<b>:</b>7</td></tr>
+<tr><td bgcolor='#eeeeec' align='center'>3</td><td bgcolor='#eeeeec' align='center'>0.0008</td><td bgcolor='#eeeeec' align='right'>339192</td><td bgcolor='#eeeeec'><a href='http://www.php.net/Phf\Mvc\Application.handle' target='_new'>handle</a>
+(  )</td><td title='/www/zxl/app/index.php' bgcolor='#eeeeec'>../index.php<b>:</b>81</td></tr>
+<tr><td bgcolor='#eeeeec' align='center'>4</td><td bgcolor='#eeeeec' align='center'>0.0010</td><td bgcolor='#eeeeec' align='right'>369000</td><td bgcolor='#eeeeec'>ApiController->initialize(  )</td><td title='/www/zxl/app/index.php' bgcolor='#eeeeec'>../index.php<b>:</b>0</td></tr>
+</table></font>
+
+2014-07-02 14:14 : 获取[yiqihao]贷款数据成功
+2014-07-02 14:14 : 新增数据0条, 失败10条.
+2014-07-02 14:14 : 获取[yiqihao]还款数据成功
+2014-07-02 14:14 : Table "loanrepay" doesn't exist on database when dumping meta-data for LoanrepayTable "loanrepay" doesn't exist on database when dumping meta-data for LoanrepayTable "loanrepay" doesn't exist on database when dumping meta-data for LoanrepayTable "loanrepay" doesn't exist on database when dumping meta-data for LoanrepayTable "loanrepay" doesn't exist on database when dumping meta-data for LoanrepayTable "loanrepay" doesn't exist on database when dumping meta-data for LoanrepayTable "loanrepay" doesn't exist on database when dumping meta-data for LoanrepayTable "loanrepay" doesn't exist on database when dumping meta-data for LoanrepayTable "loanrepay" doesn't exist on database when dumping meta-data for LoanrepayTable "loanrepay" doesn't exist on database when dumping meta-data for LoanrepayTable "loanrepay" doesn't exist on database when dumping meta-data for LoanrepayTable "loanrepay" doesn't exist on database when dumping meta-data for LoanrepayTable "loanrepay" doesn't exist on database when dumping meta-data for LoanrepayTable "loanrepay" doesn't exist on database when dumping meta-data for LoanrepayTable "loanrepay" doesn't exist on database when dumping meta-data for LoanrepayTable "loanrepay" doesn't exist on database when dumping meta-data for LoanrepayTable "loanrepay" doesn't exist on database when dumping meta-data for LoanrepayTable "loanrepay" doesn't exist on database when dumping meta-data for LoanrepayTable "loanrepay" doesn't exist on database when dumping meta-data for LoanrepayTable "loanrepay" doesn't exist on database when dumping meta-data for LoanrepayTable "loanrepay" doesn't exist on database when dumping meta-data for LoanrepayTable "loanrepay" doesn't exist on database when dumping meta-data for LoanrepayTable "loanrepay" doesn't exist on database when dumping meta-data for LoanrepayTable "loanrepay" doesn't exist on database when dumping meta-data for LoanrepayTable "loanrepay" doesn't exist on database when dumping meta-data for LoanrepayTable "loanrepay" doesn't exist on database when dumping meta-data for LoanrepayTable "loanrepay" doesn't exist on database when dumping meta-data for LoanrepayTable "loanrepay" doesn't exist on database when dumping meta-data for LoanrepayTable "loanrepay" doesn't exist on database when dumping meta-data for LoanrepayTable "loanrepay" doesn't exist on database when dumping meta-data for LoanrepayTable "loanrepay" doesn't exist on database when dumping meta-data for LoanrepayTable "loanrepay" doesn't exist on database when dumping meta-data for LoanrepayTable "loanrepay" doesn't exist on database when dumping meta-data for LoanrepayTable "loanrepay" doesn't exist on database when dumping meta-data for LoanrepayTable "loanrepay" doesn't exist on database when dumping meta-data for LoanrepayTable "loanrepay" doesn't exist on database when dumping meta-data for LoanrepayTable "loanrepay" doesn't exist on database when dumping meta-data for LoanrepayTable "loanrepay" doesn't exist on database when dumping meta-data for LoanrepayTable "loanrepay" doesn't exist on database when dumping meta-data for LoanrepayTable "loanrepay" doesn't exist on database when dumping meta-data for LoanrepayTable "loanrepay" doesn't exist on database when dumping meta-data for LoanrepayTable "loanrepay" doesn't exist on database when dumping meta-data for LoanrepayTable "loanrepay" doesn't exist on database when dumping meta-data for LoanrepayTable "loanrepay" doesn't exist on database when dumping meta-data for LoanrepayTable "loanrepay" doesn't exist on database when dumping meta-data for LoanrepayTable "loanrepay" doesn't exist on database when dumping meta-data for LoanrepayTable "loanrepay" doesn't exist on database when dumping meta-data for LoanrepayTable "loanrepay" doesn't exist on database when dumping meta-data for LoanrepayTable "loanrepay" doesn't exist on database when dumping meta-data for LoanrepayTable "loanrepay" doesn't exist on database when dumping meta-data for LoanrepayTable "loanrepay" doesn't exist on database when dumping meta-data for LoanrepayTable "loanrepay" doesn't exist on database when dumping meta-data for LoanrepayTable "loanrepay" doesn't exist on database when dumping meta-data for LoanrepayTable "loanrepay" doesn't exist on database when dumping meta-data for LoanrepayTable "loanrepay" doesn't exist on database when dumping meta-data for Loanrepay新增数据0条, 失败10条.
+2014-07-02 14:23 : 获取[yiqihao]贷款数据成功
+2014-07-02 14:23 : SQLSTATE[HY000]: General error: 1364 Field 'description' doesn't have a default valueSQLSTATE[HY000]: General error: 1364 Field 'description' doesn't have a default valueSQLSTATE[HY000]: General error: 1364 Field 'description' doesn't have a default valueSQLSTATE[HY000]: General error: 1364 Field 'description' doesn't have a default valueSQLSTATE[HY000]: General error: 1364 Field 'description' doesn't have a default valueSQLSTATE[HY000]: General error: 1364 Field 'description' doesn't have a default valueSQLSTATE[HY000]: General error: 1364 Field 'description' doesn't have a default valueSQLSTATE[HY000]: General error: 1364 Field 'description' doesn't have a default valueSQLSTATE[HY000]: General error: 1364 Field 'description' doesn't have a default valueSQLSTATE[HY000]: General error: 1364 Field 'description' doesn't have a default valueSQLSTATE[HY000]: General error: 1364 Field 'description' doesn't have a default valueSQLSTATE[HY000]: General error: 1364 Field 'description' doesn't have a default valueSQLSTATE[HY000]: General error: 1364 Field 'description' doesn't have a default valueSQLSTATE[HY000]: General error: 1364 Field 'description' doesn't have a default valueSQLSTATE[HY000]: General error: 1364 Field 'description' doesn't have a default valueSQLSTATE[HY000]: General error: 1364 Field 'description' doesn't have a default valueSQLSTATE[HY000]: General error: 1364 Field 'description' doesn't have a default valueSQLSTATE[HY000]: General error: 1364 Field 'description' doesn't have a default valueSQLSTATE[HY000]: General error: 1364 Field 'description' doesn't have a default valueSQLSTATE[HY000]: General error: 1364 Field 'description' doesn't have a default valueSQLSTATE[HY000]: General error: 1364 Field 'description' doesn't have a default valueSQLSTATE[HY000]: General error: 1364 Field 'description' doesn't have a default valueSQLSTATE[HY000]: General error: 1364 Field 'description' doesn't have a default valueSQLSTATE[HY000]: General error: 1364 Field 'description' doesn't have a default valueSQLSTATE[HY000]: General error: 1364 Field 'description' doesn't have a default valueSQLSTATE[HY000]: General error: 1364 Field 'description' doesn't have a default valueSQLSTATE[HY000]: General error: 1364 Field 'description' doesn't have a default valueSQLSTATE[HY000]: General error: 1364 Field 'description' doesn't have a default valueSQLSTATE[HY000]: General error: 1364 Field 'description' doesn't have a default valueSQLSTATE[HY000]: General error: 1364 Field 'description' doesn't have a default valueSQLSTATE[HY000]: General error: 1364 Field 'description' doesn't have a default valueSQLSTATE[HY000]: General error: 1364 Field 'description' doesn't have a default valueSQLSTATE[HY000]: General error: 1364 Field 'description' doesn't have a default valueSQLSTATE[HY000]: General error: 1364 Field 'description' doesn't have a default valueSQLSTATE[HY000]: General error: 1364 Field 'description' doesn't have a default valueSQLSTATE[HY000]: General error: 1364 Field 'description' doesn't have a default valueSQLSTATE[HY000]: General error: 1364 Field 'description' doesn't have a default valueSQLSTATE[HY000]: General error: 1364 Field 'description' doesn't have a default valueSQLSTATE[HY000]: General error: 1364 Field 'description' doesn't have a default valueSQLSTATE[HY000]: General error: 1364 Field 'description' doesn't have a default valueSQLSTATE[HY000]: General error: 1364 Field 'description' doesn't have a default valueSQLSTATE[HY000]: General error: 1364 Field 'description' doesn't have a default valueSQLSTATE[HY000]: General error: 1364 Field 'description' doesn't have a default valueSQLSTATE[HY000]: General error: 1364 Field 'description' doesn't have a default valueSQLSTATE[HY000]: General error: 1364 Field 'description' doesn't have a default valueSQLSTATE[HY000]: General error: 1364 Field 'description' doesn't have a default valueSQLSTATE[HY000]: General error: 1364 Field 'description' doesn't have a default valueSQLSTATE[HY000]: General error: 1364 Field 'description' doesn't have a default valueSQLSTATE[HY000]: General error: 1364 Field 'description' doesn't have a default valueSQLSTATE[HY000]: General error: 1364 Field 'description' doesn't have a default valueSQLSTATE[HY000]: General error: 1364 Field 'description' doesn't have a default valueSQLSTATE[HY000]: General error: 1364 Field 'description' doesn't have a default valueSQLSTATE[HY000]: General error: 1364 Field 'description' doesn't have a default valueSQLSTATE[HY000]: General error: 1364 Field 'description' doesn't have a default valueSQLSTATE[HY000]: General error: 1364 Field 'description' doesn't have a default value新增数据0条, 失败10条.
+2014-07-02 14:23 : 获取[yiqihao]还款数据成功
+2014-07-02 14:23 : SQLSTATE[HY000]: General error: 1364 Field 'no' doesn't have a default valueSQLSTATE[HY000]: General error: 1364 Field 'no' doesn't have a default valueSQLSTATE[HY000]: General error: 1364 Field 'no' doesn't have a default valueSQLSTATE[HY000]: General error: 1364 Field 'no' doesn't have a default valueSQLSTATE[HY000]: General error: 1364 Field 'no' doesn't have a default valueSQLSTATE[HY000]: General error: 1364 Field 'no' doesn't have a default valueSQLSTATE[HY000]: General error: 1364 Field 'no' doesn't have a default valueSQLSTATE[HY000]: General error: 1364 Field 'no' doesn't have a default valueSQLSTATE[HY000]: General error: 1364 Field 'no' doesn't have a default valueSQLSTATE[HY000]: General error: 1364 Field 'no' doesn't have a default valueSQLSTATE[HY000]: General error: 1364 Field 'no' doesn't have a default valueSQLSTATE[HY000]: General error: 1364 Field 'no' doesn't have a default valueSQLSTATE[HY000]: General error: 1364 Field 'no' doesn't have a default valueSQLSTATE[HY000]: General error: 1364 Field 'no' doesn't have a default valueSQLSTATE[HY000]: General error: 1364 Field 'no' doesn't have a default valueSQLSTATE[HY000]: General error: 1364 Field 'no' doesn't have a default valueSQLSTATE[HY000]: General error: 1364 Field 'no' doesn't have a default valueSQLSTATE[HY000]: General error: 1364 Field 'no' doesn't have a default valueSQLSTATE[HY000]: General error: 1364 Field 'no' doesn't have a default valueSQLSTATE[HY000]: General error: 1364 Field 'no' doesn't have a default valueSQLSTATE[HY000]: General error: 1364 Field 'no' doesn't have a default valueSQLSTATE[HY000]: General error: 1364 Field 'no' doesn't have a default valueSQLSTATE[HY000]: General error: 1364 Field 'no' doesn't have a default valueSQLSTATE[HY000]: General error: 1364 Field 'no' doesn't have a default valueSQLSTATE[HY000]: General error: 1364 Field 'no' doesn't have a default valueSQLSTATE[HY000]: General error: 1364 Field 'no' doesn't have a default valueSQLSTATE[HY000]: General error: 1364 Field 'no' doesn't have a default valueSQLSTATE[HY000]: General error: 1364 Field 'no' doesn't have a default valueSQLSTATE[HY000]: General error: 1364 Field 'no' doesn't have a default valueSQLSTATE[HY000]: General error: 1364 Field 'no' doesn't have a default valueSQLSTATE[HY000]: General error: 1364 Field 'no' doesn't have a default valueSQLSTATE[HY000]: General error: 1364 Field 'no' doesn't have a default valueSQLSTATE[HY000]: General error: 1364 Field 'no' doesn't have a default valueSQLSTATE[HY000]: General error: 1364 Field 'no' doesn't have a default valueSQLSTATE[HY000]: General error: 1364 Field 'no' doesn't have a default valueSQLSTATE[HY000]: General error: 1364 Field 'no' doesn't have a default valueSQLSTATE[HY000]: General error: 1364 Field 'no' doesn't have a default valueSQLSTATE[HY000]: General error: 1364 Field 'no' doesn't have a default valueSQLSTATE[HY000]: General error: 1364 Field 'no' doesn't have a default valueSQLSTATE[HY000]: General error: 1364 Field 'no' doesn't have a default valueSQLSTATE[HY000]: General error: 1364 Field 'no' doesn't have a default valueSQLSTATE[HY000]: General error: 1364 Field 'no' doesn't have a default valueSQLSTATE[HY000]: General error: 1364 Field 'no' doesn't have a default valueSQLSTATE[HY000]: General error: 1364 Field 'no' doesn't have a default valueSQLSTATE[HY000]: General error: 1364 Field 'no' doesn't have a default valueSQLSTATE[HY000]: General error: 1364 Field 'no' doesn't have a default valueSQLSTATE[HY000]: General error: 1364 Field 'no' doesn't have a default valueSQLSTATE[HY000]: General error: 1364 Field 'no' doesn't have a default valueSQLSTATE[HY000]: General error: 1364 Field 'no' doesn't have a default valueSQLSTATE[HY000]: General error: 1364 Field 'no' doesn't have a default valueSQLSTATE[HY000]: General error: 1364 Field 'no' doesn't have a default valueSQLSTATE[HY000]: General error: 1364 Field 'no' doesn't have a default valueSQLSTATE[HY000]: General error: 1364 Field 'no' doesn't have a default valueSQLSTATE[HY000]: General error: 1364 Field 'no' doesn't have a default valueSQLSTATE[HY000]: General error: 1364 Field 'no' doesn't have a default value新增数据0条, 失败10条.
+2014-07-02 14:42 : 
+2014-07-02 14:42 : 获取[yiqihao]用户数据失败: 
+2014-07-02 14:42 : 
+2014-07-02 14:42 : 获取[yiqihao]用户数据失败: 
+2014-07-02 16:23 : <url> malformed
+2014-07-02 16:23 : <url> malformed
+2014-07-02 16:23 : <url> malformed
+2014-07-02 16:23 : <url> malformed
+2014-07-02 16:23 : 获取[yiqihao]还款数据失败: 
+2014-07-02 16:23 : <url> malformed
+2014-07-02 16:23 : 获取[yiqihao]还款数据失败: 
+2014-07-02 16:23 : <url> malformed
+2014-07-02 16:23 : 获取[yiqihao]还款数据失败: 
+2014-07-02 16:24 : <url> malformed
+2014-07-02 16:24 : 获取[yiqihao]还款数据失败: 
+2014-07-02 16:24 : <url> malformed
+2014-07-02 16:24 : <url> malformed
+2014-07-02 16:24 : <url> malformed
+2014-07-02 16:26 : <url> malformed
+2014-07-02 16:26 : <url> malformed
+2014-07-02 16:26 : <url> malformed
+2014-07-02 16:29 : 
+2014-07-02 16:32 : <url> malformed
+2014-07-02 16:32 : 获取[yiqihao]用户数据失败: 
+2014-07-02 16:32 : <url> malformed
+2014-07-02 16:32 : 获取[yiqihao]贷款数据失败: 
+2014-07-02 16:32 : <url> malformed
+2014-07-02 16:32 : 获取[yiqihao]还款数据失败: 
+2014-07-02 17:22 : <url> malformed
+2014-07-02 17:44 : <url> malformed
+2014-07-02 17:48 : <url> malformed
+2014-07-02 17:48 : <url> malformed
+2014-07-02 17:49 : <url> malformed
+2014-07-02 17:49 : <url> malformed
+2014-07-02 17:49 : <url> malformed
+2014-07-02 17:50 : <url> malformed
+2014-07-02 17:50 : <url> malformed
+2014-07-02 17:50 : <url> malformed
+2014-07-02 17:50 : <url> malformed
+2014-07-02 17:51 : <url> malformed
+2014-07-02 17:51 : <url> malformed
+2014-07-02 17:51 : <url> malformed
+2014-07-02 17:51 : <url> malformed
+2014-07-02 17:51 : <url> malformed
+2014-07-02 17:51 : <url> malformed
+2014-07-02 17:52 : <url> malformed
+2014-07-02 17:52 : <url> malformed
+2014-07-02 17:53 : <url> malformed
+2014-07-02 17:53 : <url> malformed
+2014-07-02 17:53 : <url> malformed
+2014-07-02 17:53 : <url> malformed
+2014-07-02 17:53 : <url> malformed
+2014-07-02 17:53 : <url> malformed
+2014-07-02 17:53 : <url> malformed
+2014-07-02 17:53 : <url> malformed
+2014-07-02 17:54 : <url> malformed
+2014-07-02 17:54 : <url> malformed
+2014-07-02 17:54 : <url> malformed
+2014-07-02 17:54 : <url> malformed
+2014-07-02 17:54 : <url> malformed
+2014-07-02 17:54 : 
+2014-07-02 17:55 : <url> malformed
+2014-07-02 17:55 : 
+2014-07-02 17:55 : <url> malformed
+2014-07-02 17:55 : 
+2014-07-02 17:55 : <url> malformed
+2014-07-02 17:55 : 
+2014-07-02 17:55 : <url> malformed
+2014-07-02 17:55 : 
+2014-07-02 17:55 : <url> malformed
+2014-07-02 17:55 : 
+2014-07-02 17:55 : <url> malformed
+2014-07-02 17:55 : 
+2014-07-02 17:56 : <url> malformed
+2014-07-02 17:56 : <url> malformed
+2014-07-02 17:56 : <url> malformed
+2014-07-02 17:56 : <url> malformed
+2014-07-02 17:57 : <url> malformed
+2014-07-02 17:57 : <url> malformed
+2014-07-02 17:58 : <url> malformed
+2014-07-02 17:58 : <url> malformed
+2014-07-02 17:59 : <url> malformed
+2014-07-02 18:02 : <url> malformed
+2014-07-02 18:02 : <url> malformed
+2014-07-02 18:03 : <url> malformed
+2014-07-02 18:03 : <url> malformed
+2014-07-02 18:03 : <url> malformed
+2014-07-02 18:03 : <url> malformed
+2014-07-02 18:03 : <url> malformed
+2014-07-02 18:03 : <url> malformed
+2014-07-02 18:04 : <url> malformed
+2014-07-02 18:04 : <url> malformed
