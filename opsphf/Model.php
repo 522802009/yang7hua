@@ -12,10 +12,14 @@ use \Phf\Mvc\Model\Validator\StringLength as StringLengthValidator;
 use \Phf\Mvc\Model\Resultset; 
 use \Phf\Mvc\Model\MetaData\Memory as MetaDataMemory;
 
+use \Phf\Mvc\Model\Criteria as Criteria;
+
+use \Common\Func as Func;
+
 class Model extends \Phf\Mvc\Model
 {
 	
-	protected $db;
+	protected static $db;
 
 	private $_metadataMemory;
 
@@ -23,11 +27,31 @@ class Model extends \Phf\Mvc\Model
 
 	protected $_validators;
 
+	private $_queryOptions;
+
+	private $_criteria;
+
 	protected function initialize()
 	{
-		global $di;
-		$this->db = $di->get('db');
+		if(!self::$db){
+			global $di;
+			static::$db = $di->get('db');
+		}
 		$this->_metadataMemory = new MetaDataMemory;
+		$this->_criteria = new Criteria;
+	}
+
+	public static function getDb()
+	{
+		return static::$db;
+	}
+
+	public function getCriteria()
+	{
+		if(!$this->_criteria instanceof Criteria)
+			$this->_criteria = new Criteria;
+		$this->_criteria->setModelName($this->tableName);
+		return $this->_criteria;
 	}
 	
 	protected function beforeValidation()
@@ -116,22 +140,31 @@ class Model extends \Phf\Mvc\Model
 		}
 	}
 
-	public function first(array $param = array())
+	public function first(array $params = array())
 	{
-		$data = $this->findFirst($param);
-		return $this->filter($data, $param['fields']);
+		$data = $this->findFirst($params);
+		if(!$data)
+			return false;
+		return $this->filter($data, $params['fields']);
 	}
 
-	public function select(array $param=array())
+	public function select(array $params = array())
 	{
-		$data = $this->find($param);
-		return $this->filter($data, $param['fields']);
+		$data = $this->find($params);
+		if(!$data)
+			return false;
+		return $this->filter($data, $params['fields']);
 	}
 
-	private function filter($data, $allowFields = '*')
+	/**
+	  format fields
+	*/
+	private function formatFields($allowFields = '*')
 	{
-		$allFields = $this->getFields();
+		$allFields = $this->getTableFields();
 		$filter = false;
+		if(empty($allowFields))
+			$allowFields = $this->selectFields ? $this->selectFields : $allFields;
 		if($allowFields == '*'){
 			$fields = $allFields;
 		}else if(is_string($allowFields)){
@@ -140,14 +173,11 @@ class Model extends \Phf\Mvc\Model
 			if(is_array($allowFields[0])){
 				$fields = $allowFields[0];
 				$filter = isset($allowFields[1]) ? $allowFields[1] : false;
-			}else if(count($allowFields) == 2){ 
-				$fields = $allowFields;
-				$filter = $allowFields[1];
 			}else{
-				$fields = $allowFields[0];
+				$fields = $allowFields;
 			}
 		}
-		
+
 		if(is_string($fields) && strpos($fields, ','))
 			$fields = explode(',', $fields);
 		else 
@@ -155,6 +185,12 @@ class Model extends \Phf\Mvc\Model
 		if($filter){
 			$fields = array_diff($allFields, $fields);
 		}
+		return $fields;
+	}
+
+	private function filter($data, $allowFields = '*')
+	{
+		$fields = $this->formatFields($allowFields);	
 
 		$return = array();
 
@@ -167,36 +203,107 @@ class Model extends \Phf\Mvc\Model
 			return $row;
 		};
 
-		$toArray = function($row) use (&$return, $filter){
-			$row = $row->toArray();
-			$return[] = $filter($row);
-		};
-		if(count($data) > 1){
+		$data = $data->toArray();
+		if(is_array($data[0])){
 			foreach($data as $row)
-				$toArray($row);
+				$return[] = $filter($row);
 		}else{
-			$toArray($data);
+			$return = $filter($data);
 		}
 
 		return $return;
 	}
 
-	protected function getFields()
+	protected function getTableFields()
 	{
 		return $this->_metadataMemory->getAttributes($this);
 	}
 
-	public function save($data=null, $whiteList=null)
+	public function setQueryOptions(array $params)
 	{
-		$Controller = new Controller();
-		if(parent::save() == false){
-			$errmsg = '';
-			foreach(parent::getMessages() as $message){
-				$errmsg .= $message . '; ';
+		$queryOptions = array(
+				'fields'=>array(),
+				'values'=>array()
+		);
+		$allowFields = $this->formatFields(isset($params['fields']) ? $params['fields'] : '*');
+
+		foreach($params as $key=>$value){
+			$key = strtolower($key);
+			if(in_array($key, $allowFields)){
+				$queryOptions['fields'][] = $key;
+				$queryOptions['values'][] = $value;
 			}
-			$Controller->ajaxReturn(rtrim($errmsg, '; '), false);
+			if($key == 'tablename' && $this->getDb()->tableExists($value))
+				$queryOptions['tableName'] = $value;
+			if($key == 'where')
+				$queryOptions['where'] = $value;
 		}
-		$Controller->ajaxReturn('操作成功');
+		$tableName = $queryOptions['tableName'] ? $queryOptions['tableName'] : $this->tableName;
+		$queryOptions['tableName'] = $tableName;
+		$this->_queryOptions = $queryOptions;
+		$this->_checkQueryOptions();
+		return $this;
+	}
+
+	private function _checkQueryOptions()
+	{
+		if(!self::$db->tableExists($this->_queryOptions['tableName'])){
+			$this->ajaxReturn('参数错误', false);	
+		}
+		if(empty($this->_queryOptions['fields']) || empty($this->_queryOptions['values'])
+			|| count($this->_queryOptions['fields']) != count($this->_queryOptions['values'])
+		){
+			$this->ajaxReturn('参数错误', false);	
+		}
+	}
+
+	public function doUpdate($ajaxReturn = true)
+	{
+		$this->doResult = $this->getDb()->update(
+					$this->_queryOptions['tableName'],
+					$this->_queryOptions['fields'],
+					$this->_queryOptions['values'],
+					$this->_queryOptions['where']
+				);
+		return $this->returnDoResult($ajaxReturn);
+	}
+
+	public function doInsert($ajaxReturn = true)
+	{
+		$this->doResult = $this->getDb()->insert(
+					$this->_queryOptions['tableName'],
+					$this->_queryOptions['values'],
+					$this->_queryOptions['fields']
+				);
+		return $this->returnDoResult($ajaxReturn);
+	}
+
+	public function lastInsertId()
+	{
+		return $this->getDb()->lastInsertId();
+	}
+
+	private function returnDoResult($ajaxReturn = true)
+	{
+		if($this->doResult){
+			if($ajaxReturn)
+				$this->ajaxReturn('操作成功'); 
+			return true;
+		}else{
+			if(!$ajaxReturn)
+				return false;
+
+			$messageStr = null;
+			foreach(parent::getMessages() as $message){
+				$messageStr .= $message . '; ';
+			}
+			$this->ajaxReturn(rtrim($messageStr, '; '), false);
+		}
+	}
+
+	protected function ajaxReturn($data, $success=true){
+		$Controller = new Controller();
+		$Controller->ajaxReturn($data, $success);
 	}
 
 }

@@ -16,10 +16,6 @@ foreach($matches[0] as $row){
 
 $key = 'hao.game.pwd';
 
-print_r($result);
-exit();
-
-
 $CURL_OPTS = array(
 	CURLOPT_HEADER	=>	false,
 	CURLOPT_RETURNTRANSFER	=> true,
@@ -49,6 +45,9 @@ function write($data)
 
 $f = fopen('log.txt', 'w');
 fclose($f);
+
+$result = [array('id'=>10, 'score'=>'3:0', 'win'=>8)];
+
 foreach($result as $row){
 	$CURL_OPTS[CURLOPT_POSTFIELDS]	=	array(
 			'id'	=>	$row[0],	
