@@ -1,0 +1,93 @@
+1,	post提交：
+	参数：按新增时间区间来查询
+	begin:	查询起始时间
+	end:	查询结束时间
+
+2, 所有接口返回的格式如下：
+	{
+		ret  : 1,
+		data : {
+			list : [
+				{},... 
+			]
+		}
+	}
+
+3, 用户信息
+	data : {
+		list : [
+			{
+				uid : 100001,
+				idcard : '420528198700000000',
+				realname : '杨华'
+			},
+			....
+		]
+	}
+
+4, 贷款信息
+	data : {
+		list : [
+			{
+				lid		:	101803,
+				plid	:	101800,
+				uid		:	100001,
+				auid	:	100001, //机构ID
+				title	:	'贷款100万',
+				type	:	4,		//标类型
+				is_flow :	1,
+				use_type	:	23,	//贷款用途
+				amount	:	1000000.00,	//贷款金额
+				remain_amount : 10000.00,	//剩余本金
+				return_amount : 9000000.00, //已还总额
+				repay_num	:	3,	//已还期数
+				deadline	:	12, //贷款期限
+				deadline_type : 'm', //期限类型
+				days	:	0,	//几天标
+				apr		:	18.90,	//年利率
+				repay_method	:	'e', //还款方式
+				begintime	:	1490990901, //还款起始时间
+				endtime		:	1490990901, //还款起始时间
+				status	:	12, //贷款状态
+				remark	:	'',		//备注
+				lrealname	:	'',		//流转债权人姓名
+				lidcard	:	'',		//流转债权人身份证
+				lno	: 100001,	//流转借款合同编号
+				addtime :	1390030303,		//创建时间
+				uptime	:	1390030303,		//更新时间
+				paytime	:	1390030303,		//还款时间
+			},
+			...
+		]
+	}
+
+5,	还款信息
+	data	:	{
+		list	:	[
+			{
+				rid	:	100001,
+				lid	:	100030,
+				slid	:	100001,		
+				smount	:	100030,
+				uid	:	100001,
+				no	:	1,	//第几期
+				time	:	1349090900,
+				amount	:	1390000.00,	//还款金额
+				money	:	1399999.09,	//还款本金
+				return_amount	:	130000.00, //已换金额
+				return_money	:	130000.00, //已换本金
+				remain_amount	:	3000000.00, //剩余金额
+				loan_fee	:	33.00,	//管理费
+				late_fee	:	10.00,	//逾期费用
+				early	:	1,	//是否提前还款
+				picurl	:	'', //还款截图
+				lateurl	:	'',	//逾期链接
+				status	:	11,	//还款状态
+				ostatus	:	11,	//状态
+				uptime	:	1340000010, //更新时间
+				paytime	:	1340000010, //还款时间
+				oktime	:	1340000010, //完成时间
+			},
+			...
+		]
+	}
