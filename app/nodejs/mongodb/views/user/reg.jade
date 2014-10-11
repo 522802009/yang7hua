@@ -1,0 +1,8 @@
+extends /public/layout
+
+block content
+	form(name='reg', action='/user/reg', method='post')
+		input(name='username', type='text')
+		input(name='password', type='password')
+		image(src='/public/captcha')
+		button(type='submit') 提交

@@ -1,19 +1,27 @@
-var mongodb = require('mongodb');
-var server = mongodb.Server('localhost', 27017);
-var db = new mongodb.Db('test', server, {safe:true});
+var express = require('express');
+var app = express();
+var bodyParser = require('body-parser');
+var config = require('./config');
+var path = require('path');
 
-db.open(function(err, db){
-	if (!err) {
-		console.log('db connected.');
-		db.collection('test', function(err, test){
-			test.find().toArray(function(err, result){
-				console.log(result);
-			});
-			test.findOne(function(err, result){
-				console.log(result);
-			});
-		})
-	} else {
-		console.log(err);
-	}
-});
+//模板引擎
+app.set('views', path.join(__dirname, config.views));
+app.set('view engine', config.view_engine);
+app.engine('.html', require(config.view_engine).__express);
+
+app.locals.basedir = app.get('views');//模板include的basedir
+app.use(express.static(path.join(__dirname, config.public_dir)));//静态资源根目录js,css,images
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended:false}));
+
+//上传目录
+app.set('upload_dir', path.join(__dirname, config.upload_dir));
+
+//全局变量(方法)设置, 
+require('./global');
+
+
+var router = require('./router');
+router(app);
+
+app.listen(config.port);
