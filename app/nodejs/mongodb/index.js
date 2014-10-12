@@ -1,7 +1,7 @@
 var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
-var config = require('./config');
+var config = require('./modules/config');
 var path = require('path');
 
 //模板引擎
@@ -18,10 +18,10 @@ app.use(bodyParser.urlencoded({extended:false}));
 app.set('upload_dir', path.join(__dirname, config.upload_dir));
 
 //全局变量(方法)设置, 
-require('./global');
+require('./modules/global');
 
 
-var router = require('./router');
+var router = require('./modules/router');
 router(app);
 
 app.listen(config.port);

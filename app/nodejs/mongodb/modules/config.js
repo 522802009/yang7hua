@@ -10,10 +10,10 @@ var config = {
 	db_connect : 'mongodb://localhost:27017/myblog',
 
 	//controllers dir
-	controllers_dir : './controllers',
-	models_dir : './models',
-	public_dir : './public',
-	upload_dir : './public/upload',
+	controllers_dir : 'controllers',
+	models_dir : 'models',
+	public_dir : 'public',
+	upload_dir : 'public/upload',
 	//template
 	views : 'views',
 	view_engine : 'jade',

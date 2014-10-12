@@ -2,7 +2,7 @@ var path = require('path');
 var config = require('./config');
 
 //model目录
-global.modelsdir = path.join(__dirname, config.models_dir); 
+global.modelsdir = path.join(__dirname, '..', config.models_dir); 
 
 //配置
 global.config = config;
